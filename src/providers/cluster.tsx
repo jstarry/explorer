@@ -67,7 +67,7 @@ export function clusterUrl(cluster: Cluster, customUrl: string): string {
   }
 }
 
-export const DEFAULT_CLUSTER = Cluster.MainnetBeta;
+export const DEFAULT_CLUSTER = Cluster.Testnet;
 
 interface State {
   cluster: Cluster;
@@ -112,8 +112,9 @@ function parseQuery(query: URLSearchParams): Cluster {
     case "testnet":
       return Cluster.Testnet;
     case "mainnet-beta":
-    default:
       return Cluster.MainnetBeta;
+    default:
+      return Cluster.Testnet;
   }
 }
 

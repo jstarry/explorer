@@ -12,6 +12,7 @@ import {
   Cluster,
   useClusterModal,
   useUpdateCustomUrl,
+  DEFAULT_CLUSTER,
 } from "providers/cluster";
 import { assertUnreachable } from "../utils";
 import { Overlay } from "./common/Overlay";
@@ -173,7 +174,7 @@ function ClusterToggle() {
         const clusterLocation = (location: Location) => {
           const params = new URLSearchParams(location.search);
           const slug = clusterSlug(net);
-          if (slug !== "mainnet-beta") {
+          if (net !== DEFAULT_CLUSTER) {
             params.set("cluster", slug);
           } else {
             params.delete("cluster");
