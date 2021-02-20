@@ -10,16 +10,45 @@ export type TokenDetails = {
 
 function get(address: string, cluster: Cluster): TokenDetails | undefined {
   if (cluster === Cluster.MainnetBeta) return MAINNET_TOKENS[address];
+  if (cluster === Cluster.Testnet) return TESTNET_TOKENS[address];
 }
 
 function all(cluster: Cluster) {
   if (cluster === Cluster.MainnetBeta) return MAINNET_TOKENS;
+  if (cluster === Cluster.Testnet) return TESTNET_TOKENS;
   return {};
 }
 
 export const TokenRegistry = {
   get,
   all,
+};
+
+const TESTNET_TOKENS: { [key: string]: TokenDetails } = {
+  Akp5NZGTP24LWFUnMZywdi7G1ig9KZoKUhCTmomh9Swm: {
+    name: "Workshop Sticker #1",
+    symbol: "WS1",
+    logo: "/tokens/ws1.png",
+    website: "https://github.com/jstarry/solana-workshop-tw",
+  },
+  "8UPdrRe1FajsbHgpB6tgpghv8C3JmRvmjZMhrKDAK6aL": {
+    name: "Workshop Sticker #2",
+    symbol: "WS2",
+    logo: "/tokens/ws2.png",
+    website: "https://github.com/jstarry/solana-workshop-tw",
+  },
+  "5k6WYcBAtWZJJQF4RXXz1yA1M9AXUZS9gLETTqUxZGom": {
+    name: "Workshop Sticker #3",
+    symbol: "WS3",
+    logo: "/tokens/ws3.png",
+    website: "https://github.com/jstarry/solana-workshop-tw",
+  },
+  "3jx7SitnQVjz8tp6WH9YS1ZoY69ASpLBhKKArq9mNHQc": {
+    name: "Workshop Sticker #4",
+    symbol: "WS4",
+    logo: "/tokens/ws4.png",
+    website: "https://github.com/jstarry/solana-workshop-tw",
+  },
 };
 
 const MAINNET_TOKENS: { [key: string]: TokenDetails } = {
